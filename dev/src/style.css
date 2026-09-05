@@ -1,296 +1,255 @@
+/* ==============
+  Services CSS
+ ==============*/
+@import '/src/services/css/fonts.css';
+@import '/src/services/css/variables.css';
+
+/* ==============
+ Components CSS
+ ==============*/
+@import '/src/components/header/header.css';
+@import '/src/components/hero/hero.css';
+@import "/src/components/problem/problem.css";
+@import "/src/components/how-it-works/how-it-works.css";
+@import "/src/components/offer/offer.css";
+@import "/src/components/transformations/transformations.css";
+@import "/src/components/testimonials/testimonials.css";
+@import "/src/components/pricing/pricing.css";
+@import "/src/components/about/about.css";
+@import "/src/components/faq/faq.css";
+@import "/src/components/cta/cta.css";
+@import "/src/components/footer/footer.css";
+@import "/src/components/floating-actions/floating-actions.css";
+@import '/src/components/chatbot/chatbot.css';
+
+
+
+/* ============================================================
+   1. متغيرات إضافية عامة (مش موجودة أصلًا في variables.css)
+   ============================================================ */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* توهج بلون الليموني الثانوي — مطلوب لعناصر "النجاح/التقدم" (شارة
+     "بعد" في التحولات، حالة hover لبطاقات الأسعار) بما إن variables.css
+     فيه توهج برتقالي بس (--shadow-accent-glow) */
+  --shadow-accent-secondary-glow: 0 0 32px rgba(201, 255, 79, 0.25);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  /* نمط "شريط القياس" — خط متقطع أفقي متكرر، عنصر التوقيع البصري للموقع
+     (إشارة لفكرة "القياس والتتبع" في التخسيس ونحت الجسم). يُستخدم في:
+     section-head، مجموعة إحصائيات الهيرو، بطاقة السعر، إطار صورة المدرب */
+  --pattern-tape: repeating-linear-gradient(
+    90deg,
+    var(--color-border-strong) 0 2px,
+    transparent 2px 9px
+  );
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* مقاس موحّد لكل الشارات الدائرية (أرقام/أيقونات) في الموقع:
+     hero stats، أرقام how-it-works، أيقونات offer، شارة صورة about */
+  --size-badge: 3.5rem; /* 56px */
+  --size-badge-lg: 4.5rem; /* 72px */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* ملاحظة: الأرقام واللاتينية (٠١، +٥، 90%...) بتاخد font-family: var(--font-display-en)
+   مباشرة على كل عنصر يعرضها (hero__stat-badge, how__step-num, pricing__price...) —
+   إحساس "عداد/لوحة نتيجة" مختلف عن خط العناوين Lalezar، بدل ما نضيف class جديد
+   للـ HTML من غير داعي. */
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+
+/* ============================================================
+   2. Reset / Base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+h1, h2, h3, p { margin: 0; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+/* حماية عامة: أي عنصر عليه hidden لازم يختفي فعليًا حتى لو فيه
+   display:flex/grid متعارض جاي من قاعدة تانية أخص */
+[hidden] { display: none !important; }
+
+/* التركيز بالكيبورد — واضح وموحّد لأي عنصر تفاعلي */
+a:focus-visible,
+button:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+::selection { background: var(--color-accent); color: var(--color-text-on-accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+
+/* ============================================================
+   3. Typography & مكوّنات مشتركة
+   (Layout containers, section-head, section-end, icon)
+   ============================================================ */
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular); /* Lalezar واحد بس بوزنه الافتراضي */
+  line-height: var(--lh-tight);
+  color: var(--color-text-primary);
+}
+
+/* حاوية عامة لكل الأقسام — عرض أقصى موحّد.
+   ملاحظة: القائمة دي بتتسع لأي قسم جديد تضيفه — لو أضفت section جديد
+   بنفس نمط `.xxx__inner`، ضيفه هنا برضه بدل ما تكرر القواعد. */
+.header__inner,
+.hero__inner,
+.problem__inner,
+.how__inner,
+.offer__inner,
+.transformations__inner,
+.testimonials__inner,
+.pricing__inner,
+.about__inner,
+.faq__inner,
+.cta__inner,
+.footer__inner {
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .header__inner,
+  .hero__inner,
+  .problem__inner,
+  .how__inner,
+  .offer__inner,
+  .transformations__inner,
+  .testimonials__inner,
+  .pricing__inner,
+  .about__inner,
+  .faq__inner,
+  .cta__inner,
+  .footer__inner {
+    padding-inline: var(--container-padding-desktop);
   }
 }
-p {
+
+/* إيقاع رأسي موحّد بين الأقسام */
+.problem, .how, .offer, .transformations,
+.testimonials, .pricing, .about, .faq, .cta {
+  padding-block: var(--space-11);
+}
+
+@media (min-width: 1024px) {
+  .problem, .how, .offer, .transformations,
+  .testimonials, .pricing, .about, .faq, .cta {
+    padding-block: var(--space-12);
+  }
+}
+
+/* عنوان القسم القياسي (eyebrow + title) — مستخدم في كل الأقسام تقريبًا */
+.section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 42rem;
+  margin-bottom: var(--space-9);
+}
+
+.section-head__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wider);
+  color: var(--color-accent);
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* شريط القياس الصغير قبل كل eyebrow — أول ظهور لعنصر التوقيع البصري */
+.section-head__eyebrow::before {
+  content: "";
+  width: var(--space-8);
+  height: 3px;
+  background-image: var(--pattern-tape);
+  flex-shrink: 0;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.section-head__title {
+  font-size: var(--fs-2xl);
 }
 
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
-
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+@media (min-width: 768px) {
+  .section-head__title { font-size: var(--fs-3xl); }
 }
 
-.hero {
-  position: relative;
-
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
-
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-  .framework,
-  .vite {
-    position: absolute;
-  }
-
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
-}
-
-#app {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
+/* سطر ختامي صغير أسفل شبكة/قائمة كل قسم */
+.section-end {
+  margin-top: var(--space-8);
   text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
 }
 
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+.section-end__text {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-md);
+  max-width: 36rem;
+  margin-inline: auto;
 }
 
-#next-steps {
-  display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
-
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
-
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+/* أيقونات sprite عامة — أي svg بكلاس icon جوه أي قسم بياخد المقاس ده */
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  fill: currentColor;
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+.mb-launcher {
+  display: none !important;
 }
 
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
-
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+html {
+  overflow-x: hidden !important;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+a, button, input, textarea, select, [role="button"] {
+    -webkit-tap-highlight-color: transparent;
 }
-
-.ticks {
-  position: relative;
-  width: 100%;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
-  }
-
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
-  }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
-  }
+a:focus, button:focus, input:focus, .card:focus {
+    outline: none;
+}
+a:focus-visible, button:focus-visible, .card:focus-visible {
+    outline: 2px solid var(--color-accent); 
+    outline-offset: 3px;
 }
