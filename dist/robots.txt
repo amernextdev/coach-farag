@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://coachfarag.pages.dev/sitemap.xml
