@@ -114,6 +114,33 @@
   box-shadow: var(--shadow-md);
 }
 
+/* النص التعريفي (الاسم + المدة) الظاهر تحت صور كل كارت — بيتوسط
+   تحت الكارت بالكامل بدل ما يفضل ملتصق بحافة الفليكس */
+.transformations__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+  text-align: center;
+}
+
+.transformations__meta-name {
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+}
+
+.transformations__meta-duration {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+/* لو مفيش اسم (زي حالتنا الحالية) الـ span بيفضل موجود فاضي في الـ DOM،
+   نخفيه عشان ميسيبش فراغ زيادة */
+.transformations__meta-name:empty {
+  display: none;
+}
+
 .transformations__dots {
   display: flex;
   justify-content: center;

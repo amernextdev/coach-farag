@@ -52,6 +52,12 @@ function createTransformCard(item, template) {
   fillPicture(card, 'before', item.beforeImage, item.beforeAlt);
   fillPicture(card, 'after', item.afterImage, item.afterAlt);
 
+  // تعبئة النص التعريفي (الاسم + المدة) الظاهر تحت الصورة
+  const nameEl = card.querySelector('.transformations__meta-name');
+  const durationEl = card.querySelector('.transformations__meta-duration');
+  if (nameEl) nameEl.textContent = item.name ?? '';
+  if (durationEl) durationEl.textContent = item.duration ?? '';
+
   return fragment;
 }
 

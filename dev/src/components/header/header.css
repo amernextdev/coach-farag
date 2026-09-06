@@ -31,11 +31,37 @@
   padding-block: var(--space-4);
 }
 
+.header__logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
 .header__logo-text {
-  font-family: var(--font-display-en);
-  font-size: var(--fs-lg);
-  letter-spacing: var(--ls-wide);
+  font-family: var(--font-display-ar);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--ls-normal);
   color: var(--color-text-primary);
+  line-height: 1;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+/* جزء "كوتش" ملوّن بلون العلامة عشان يدي إحساس شعار حقيقي مش مجرد نص عادي */
+.header__logo-text__accent {
+  color: var(--color-accent);
+}
+
+/* عند مرور الماوس: باقي الاسم ياخد لون العلامة كمان، بانتقال ناعم */
+.header__logo-link:hover .header__logo-text {
+  color: var(--color-accent);
+}
+
+.header__logo-link:hover .header__logo-text__accent {
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 480px) {
+  .header__logo-text { font-size: var(--fs-lg); }
 }
 
 .header__actions {

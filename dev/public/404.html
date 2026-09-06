@@ -1,192 +1,185 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#16140F">
-<meta name="color-scheme" content="dark">
-<title>الصفحة غير موجودة | Raafat Coaching</title>
-<style>
-  /* ============================================================
-     نفس توكنز التصميم الأساسية من variables.css (مُضمَّنة يدويًا
-     هنا عشان الصفحة تشتغل لوحدها بدون أي ملف CSS خارجي)
-     ============================================================ */
-  :root{
-    --color-bg: #16140F;
-    --color-surface: #211D17;
-    --color-border: #3A362C;
-    --color-accent: #FF5A1F;
-    --color-accent-hover: #E64F18;
-    --color-accent-secondary: #C9FF4F;
-    --color-text-primary: #F5F1E8;
-    --color-text-secondary: #C7C2B5;
-    --color-text-muted: #8C8779;
-    --color-text-on-accent: #16140F;
-    --shadow-accent-glow: 0 0 40px rgba(255, 90, 31, 0.25);
-    --radius-md: 12px;
-    --radius-full: 999px;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>الصفحة مش موجودة | كوتش فراج</title>
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#16140F">
+  <meta name="color-scheme" content="dark">
 
-  *{ box-sizing: border-box; }
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-  html, body{
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-  }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 
-  body{
-    background: var(--color-bg);
-    background-image:
-      radial-gradient(circle at 15% 15%, rgba(255, 90, 31, 0.10), transparent 45%),
-      radial-gradient(circle at 85% 85%, rgba(201, 255, 79, 0.06), transparent 45%);
-    color: var(--color-text-primary);
-    font-family: "IBM Plex Sans Arabic", "Tahoma", "Segoe UI", system-ui, sans-serif;
-    line-height: 1.75;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 20px;
-  }
+  <style>
+    :root {
+      --color-bg: #16140F;
+      --color-bg-elevated: #1B1912;
+      --color-surface: #211D17;
+      --color-accent: #FF5A1F;
+      --color-accent-hover: #E64F18;
+      --color-accent-secondary: #C9FF4F;
+      --color-text-primary: #F5F1E8;
+      --color-text-secondary: #C7C2B5;
+      --color-text-muted: #8C8779;
+      --color-text-on-accent: #16140F;
+      --color-border: #3A362C;
+      --font-display-ar: 'Lalezar', sans-serif;
+      --font-body-ar: 'IBM Plex Sans Arabic', sans-serif;
+    }
 
-  .wrap{
-    width: 100%;
-    max-width: 560px;
-    text-align: center;
-  }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  .code{
-    font-family: "Anton", "Tahoma", sans-serif;
-    font-size: clamp(4rem, 18vw, 7rem);
-    line-height: 1;
-    margin: 0;
-    letter-spacing: 0.02em;
-    color: var(--color-accent);
-    text-shadow: var(--shadow-accent-glow);
-  }
+    html, body {
+      height: 100%;
+    }
 
-  .tape{
-    width: 72px;
-    height: 3px;
-    margin: 22px auto 22px;
-    background-image: repeating-linear-gradient(
-      90deg,
-      var(--color-border) 0 2px,
-      transparent 2px 9px
-    );
-  }
+    body {
+      background: var(--color-bg);
+      color: var(--color-text-primary);
+      font-family: var(--font-body-ar);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
 
-  h1{
-    font-size: 22px;
-    margin: 0 0 14px;
-    color: var(--color-text-primary);
-    font-weight: 700;
-  }
+    /* خلفية زخرفية خفيفة تطابق طابع الموقع */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(255, 90, 31, 0.14), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(201, 255, 79, 0.07), transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-  p{
-    margin: 0 auto 8px;
-    color: var(--color-text-secondary);
-    font-size: 15.5px;
-    max-width: 420px;
-  }
+    .top-logo {
+      position: relative;
+      z-index: 1;
+      padding: 1.75rem 1.5rem;
+    }
 
-  .card{
-    margin-top: 30px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 22px;
-  }
+    .top-logo a {
+      font-family: var(--font-display-ar);
+      font-size: 1.375rem;
+      color: var(--color-text-primary);
+      text-decoration: none;
+    }
 
-  .actions{
-    display: flex;
-    gap: 12px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+    .top-logo a .accent { color: var(--color-accent); }
 
-  .btn{
-    flex: 1 1 200px;
-    text-align: center;
-    padding: 14px 20px;
-    border-radius: var(--radius-full);
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
-  }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.25rem 4rem;
+    }
 
-  .btn:active{ transform: scale(0.97); }
+    .code {
+      font-family: var(--font-display-ar);
+      font-size: clamp(4.5rem, 18vw, 8rem);
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--color-accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
 
-  .btn-primary{
-    background: var(--color-accent);
-    color: var(--color-text-on-accent);
-  }
-  .btn-primary:hover{ background: var(--color-accent-hover); }
+    h1 {
+      font-family: var(--font-display-ar);
+      font-weight: 400;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      margin-bottom: 0.85rem;
+    }
 
-  .btn-secondary{
-    background: transparent;
-    color: var(--color-text-primary);
-    border-color: var(--color-border);
-  }
-  .btn-secondary:hover{ background: rgba(255,255,255,0.04); }
+    p {
+      color: var(--color-text-secondary);
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      max-width: 32rem;
+      margin-bottom: 2.25rem;
+    }
 
-  .btn:focus-visible{
-    outline: 2px solid var(--color-accent);
-    outline-offset: 3px;
-  }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
 
-  .brand{
-    margin-top: 40px;
-    font-size: 13px;
-    color: var(--color-text-muted);
-  }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      height: 3rem;
+      padding-inline: 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      text-decoration: none;
+      transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+    }
 
-  @media (prefers-reduced-motion: reduce){
-    .btn{ transition: none; }
-  }
+    .btn--primary {
+      background: var(--color-accent);
+      color: var(--color-text-on-accent);
+    }
 
-  @media (max-width: 420px){
-    body{ padding: 20px 14px; }
-    .actions{ flex-direction: column; }
-    .btn{ width: 100%; }
-  }
-</style>
+    .btn--primary:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn--ghost {
+      background: var(--color-surface);
+      color: var(--color-text-primary);
+      border: 1px solid var(--color-border);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+  </style>
 </head>
 <body>
 
-  <div class="wrap">
-    <p class="code">404</p>
-    <div class="tape" aria-hidden="true"></div>
-
-    <h1>الصفحة اللي بتدور عليها مش موجودة</h1>
-    <p>ممكن يكون الرابط اتغيّر أو اتحذف، أو تكون كتبت العنوان غلط.</p>
-
-    <div class="actions">
-      <a class="btn btn-primary" href="/">
-        الرجوع للصفحة الرئيسية
-      </a>
-      <a class="btn btn-secondary" href="javascript:void(0)" onclick="goBack()">
-        ← الرجوع للصفحة السابقة
-      </a>
-    </div>
-
-    <p class="brand">Raafat Coaching</p>
+  <div class="top-logo">
+    <a href="/" aria-label="العودة للصفحة الرئيسية"><span class="accent">كوتش</span> فراج</a>
   </div>
 
-  <script>
-    function goBack(){
-      if (window.history.length > 1) {
-        window.history.back();
-      } else {
-        window.location.href = "/";
-      }
-    }
-  </script>
+  <main class="wrap">
+    <div class="code">404</div>
+    <h1>الصفحة اللي بتدور عليها مش موجودة</h1>
+    <p>
+      يمكن الرابط اتغيّر أو اتكتب غلط. اضغط على أي زر تحت للرجوع
+      للصفحة الرئيسية أو للتواصل معانا مباشرة.
+    </p>
+
+    <div class="actions">
+      <a href="/" class="btn btn--primary">
+        الرجوع للرئيسية
+      </a>
+      <a href="https://wa.me/201501562624" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+        تواصل عبر واتساب
+      </a>
+    </div>
+  </main>
 
 </body>
 </html>
