@@ -1,0 +1,34 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "quote": "أنا استفدت معاه جدا، خصوصا في موضوع الأكل والتمرين. بقيت عارف أعمل إيه ومش ماشي عشوائي زي الأول.",
+      "name": "Ali Tarek",
+      "meta": "بقى يعرف يتمرن ويتغذى صح"
+    },
+    {
+      "id": 2,
+      "quote": "الفرق في جسمي واضح اوي الحمدلله، وأكتر حاجة عجبتني إنه كان متابع معايا باستمرار ومش سايبني أعمل أي حاجة وخلاص.",
+      "name": "Omar Mohamed",
+      "meta": "فرق واضح بفضل المتابعة المستمرة"
+    },
+    {
+      "id": 3,
+      "quote": "Honestly I've seen a really big difference since I started with him. My body changed a lot and I finally feel like I'm actually making progress.",
+      "name": "Haya Amr",
+      "meta": "تحسن ملحوظ وتقدم فعلي"
+    },
+    {
+      "id": 4,
+      "quote": "بجد فرق كبير عن الأول، سواء في شكلي أو قوتي. الحمدلله إني بدأت معاه.",
+      "name": "Youssef Omar",
+      "meta": "فرق كبير في الشكل والقوة"
+    },
+    {
+      "id": 5,
+      "quote": "والله فرق معايا جدا، خصوصا في شكل جسمي. حتى الناس حواليا بدأت تلاحظ الفرق ❤️.",
+      "name": "Sara Mohamed",
+      "meta": "فرق لاحظه المقربون"
+    }
+  ]
+}
